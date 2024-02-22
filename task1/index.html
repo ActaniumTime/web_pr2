@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Totam consequatur optio saepe repellendus fuga, dolore unde 
+         commodi qui quis consectetur officiis quaerat esse sapiente
+          ducimus consequuntur repellat explicabo. Officiis, fugit!
+    </div>
+</body>
+
+
+
+<script>
+    //task 1.1.1
+    //repeated it, while the password isnt 123456
+    while(prompt('Enter the password for connection:') !=123456)
+    {
+        //if password isnt correct
+        //output the message  about the error
+        if(!confirm('Password isn`t correct, try again ?')) {
+            //if answer is negetive 
+            window.location.href='error.html';
+
+            break;
+        }
+    }
+</script>
+
+</html>

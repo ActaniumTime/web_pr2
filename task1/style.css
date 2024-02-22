@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+}
+
+.globalBlock{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    background-color: rgb(122, 177, 122);
+    padding: 10px;
+}
+
+.line{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.input {
+    width: 180px;
+}
+
+.buttonLine{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 400px;
+}
