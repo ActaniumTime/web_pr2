@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#calculator, #input-fields, .exchange-container {
+    margin: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+.input-field {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+.radio-button {
+    margin: 10px;
+}
+
+#calculate-button, #cancel-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#calculate-button:hover, #cancel-button:hover {
+    background-color: #45a049;
+}
+
+#resultt {
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.exchange-container label, .exchange-container select, .exchange-container input, .exchange-container button {
+    margin: 5px 0;
+    padding: 8px;
+}
+
+.exchange-container button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exchange-container button:hover {
+    background-color: #005f79;
+}
+
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор вкладов</title>
+    <script type="text/javascript">
+        function validate(elem, sum) {
+            if (elem.value < sum || isNaN(elem.value)) {
+                alert('Значение не может быть меньше ' + sum);
+                elem.focus();
+                elem.select();
+            }
+        }
+
+        function calc() {
+            var sum = +document.forms[0].elements[0].value;
+            var popoln = +document.forms[0].elements[1].value;
+            var srok = document.forms[0].elements[2].selectedIndex;
+            var vid = document.forms[0].elements[3].selectedIndex;
+            var otvet = 0;
+
+            switch (srok) {
+                case 0:
+                    if (vid == 0)
+                        otvet = sum * 11 / 100 / 12 * 3;
+                    else
+                        for (var i = 1; i <= 3; i++) {
+                            sum += popoln;
+                            otvet += sum * 10 / 100 / 12 * 3;
+                        }
+                    break;
+                case 1:
+                    if (vid == 0)
+                        otvet = sum * 13 / 100 / 12 * 6;
+                    else
+                        for (var i = 1; i <= 6; i++) {
+                            sum += popoln;
+                            otvet += sum * 12 / 100 / 12 * 6;
+                        }
+                    break;
+                case 2:
+                    if (vid == 0)
+                        otvet = sum * 15 / 100 / 12 * 9;
+                    else
+                        for (var i = 1; i <= 9; i++) {
+                            sum += popoln;
+                            otvet += sum * 14 / 100 / 12 * 9;
+                        }
+                    break;
+                case 3:
+                    if (vid == 0)
+                        otvet = sum * 17 / 100 / 12 * 12;
+                    else
+                        for (var i = 1; i <= 12; i++) {
+                            sum += popoln;
+                            otvet += sum * 16 / 100 / 12 * 12;
+                        }
+                    break;
+            }
+
+            alert('Ожидаемая сумма = ' + otvet.toFixed(2));
+        }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <table border="1" width="50%" align="center">
+            <tr>
+                <td>Сумма вклада:</td>
+                <td><input type="text" name="T1" size="20" value="500" onblur="validate(this, 500)"></td>
+            </tr>
+            <tr>
+                <td>Сумма пополнения:</td>
+                <td><input type="text" name="T2" size="20" value="100" onblur="validate(this, 50)"></td>
+            </tr>
+            <tr>
+                <td>Срок вклада:</td>
+                <td>
+                    <select name="D1">
+                        <option value="3">3 месяца</option>
+                        <option value="6">6 месяцев</option>
+                        <option value="9">9 месяцев</option>
+                        <option value="12">12 месяцев</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Тип вклада:</td>
+                <td>
+                    <select name="D2">
+                        <option value="0">Без пополнения</option>
+                        <option value="1">С пополнением</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Рассчитать" name="B1" onclick="calc()">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+    <div id="calculator">
+        <input type="number" id="num1" placeholder="Введите число 1">
+        <br>
+        <input type="number" id="num2" placeholder="Введите число 2">
+        <br>
+        <button onclick="calculateResult('+')">Сложение</button>
+        <button onclick="calculateResult('-')">Вычитание</button>
+        <button onclick="calculateResult('*')">Умножение</button>
+        <button onclick="calculateResult('/')">Деление</button>
+        <br>
+        <button onclick="calculateResult('sin')">Синус</button>
+        <button onclick="calculateResult('cos')">Косинус</button>
+        <button onclick="calculateResult('cot')">Котангенс</button>
+        <button onclick="calculateResult('log')">Логарифм</button>
+        <br>
+        <button onclick="calculateResult('sqrt')">Корень</button>
+        <br>
+        <input type="text" id="result" readonly>
+      </div>
+    
+      <script>
+        function calculateResult(operation) {
+          const num1 = parseFloat(document.getElementById('num1').value);
+          const num2 = parseFloat(document.getElementById('num2').value);
+    
+          if (isNaN(num1) && isNaN(num2)) {
+            document.getElementById('result').value = 'Введите корректные числа';
+            return;
+          }
+    
+          switch (operation) {
+            case '+':
+              document.getElementById('result').value = num1 + num2;
+              break;
+            case '-':
+              document.getElementById('result').value = num1 - num2;
+              break;
+            case '*':
+              document.getElementById('result').value = num1 * num2;
+              break;
+            case '/':
+              if (num2 !== 0) {
+                document.getElementById('result').value = num1 / num2;
+              } else {
+                document.getElementById('result').value = 'Деление на ноль невозможно';
+              }
+              break;
+            case 'sin':
+              document.getElementById('result').value = Math.sin(num1);
+              break;
+            case 'cos':
+              document.getElementById('result').value = Math.cos(num1);
+              break;
+            case 'cot':
+              if (Math.tan(num1) !== 0) {
+                document.getElementById('result').value = 1 / Math.tan(num1);
+              } else {
+                document.getElementById('result').value = 'Котангенс для угла 90 градусов не определен';
+              }
+              break;
+            case 'log':
+              if (num1 > 0) {
+                document.getElementById('result').value = Math.log10(num1);
+              } else {
+                document.getElementById('result').value = 'Логарифм не определен для неположительных чисел';
+              }
+              break;
+            case 'sqrt':
+              if (num1 >= 0) {
+                document.getElementById('result').value = Math.sqrt(num1);
+              } else {
+                document.getElementById('result').value = 'Корень не определен для отрицательных чисел';
+              }
+              break;
+            default:
+              document.getElementById('result').value = 'Неверная операция';
+              break;
+          }
+        }
+      </script>
+
+<style>
+    .input-field {
+        background-color: white;
+        margin: 10px;
+    }
+    .radio-button {
+        margin: 10px;
+    }
+</style>
+
+<div id="input-fields">
+    <input class="input-field" type="text" placeholder="Введите число">
+    <input class="input-field" type="text" placeholder="Введите число">
+    <input class="input-field" type="text" placeholder="Введите число">
+    <input class="input-field" type="text" placeholder="Введите число">
+    <input class="input-field" type="text" placeholder="Введите число">
+    <input class="input-field" type="text" placeholder="Введите число">
+    <input class="input-field" type="text" placeholder="Введите число">
+
+</div>
+<div id="radio-buttons">
+    <input class="radio-button" type="radio" name="calculation" value="sum"> Сумма<br>
+    <input class="radio-button" type="radio" name="calculation" value="max"> Максимальное<br>
+    <input class="radio-button" type="radio" name="calculation" value="min"> Минимальное<br>
+    <input class="radio-button" type="radio" name="calculation" value="avg"> Среднее<br>
+</div>
+<button id="calculate-button">Расчет</button>
+<button id="cancel-button">Отмена</button>
+<label for="result">Результат:</label>
+<input id="resultt" type="text" readonly>
+
+<script>
+    document.getElementById('calculate-button').addEventListener('click', function() {
+
+        var calculationType = document.querySelector('input[name="calculation"]:checked');
+
+
+            var inputFields = document.querySelectorAll('.input-field');
+
+
+            switch (calculationType.value) {
+                case 'sum':
+                    var sum = 0;
+                    inputFields.forEach(function(input) {
+                        sum += parseFloat(input.value) || 0;
+                    });
+                    document.getElementById('resultt').value = sum;
+                    break;
+                case 'max':
+                    var max = -Infinity;
+                    inputFields.forEach(function(input) {
+                        max = Math.max(max, parseFloat(input.value) || -Infinity);
+                    });
+                    document.getElementById('resultt').value = max;
+                    break;
+                case 'min':
+                    var min = Infinity;
+                    inputFields.forEach(function(input) {
+                        min = Math.min(min, parseFloat(input.value) || Infinity);
+                    });
+                    document.getElementById('resultt').value = min;
+                    break;
+                case 'avg':
+                    var total = 0;
+                    var count = 0;
+                    inputFields.forEach(function(input) {
+                        var value = parseFloat(input.value);
+                        if (!isNaN(value)) {
+                            total += value;
+                            count++;
+                        }
+                    });
+                    var average = count > 0 ? total / count : 0;
+                    document.getElementById('resultt').value = average;
+                    break;
+            }
+        }
+    );
+</script>
+
+        
+
+
+        <div class="exchange-container">
+            <label for="fromCurrency">Из валюты:</label>
+            <select id="fromCurrency">
+                <option value="UAH">Гривны (UAH)</option>
+                <option value="RUB">Рубли (RUB)</option>
+                <option value="EUR">Евро (EUR)</option>
+                <option value="USD">Доллары (USD)</option>
+            </select>
+    
+            <label for="amount">Сумма:</label>
+            <input type="number" id="amount" placeholder="Введите сумму">
+    
+            <label for="toCurrency">В валюту:</label>
+            <select id="toCurrency">
+                <option value="UAH">Гривны (UAH)</option>
+                <option value="RUB">Рубли (RUB)</option>
+                <option value="EUR">Евро (EUR)</option>
+                <option value="USD">Доллары (USD)</option>
+            </select>
+    
+            <button onclick="convertCurrency()">Обменять</button>
+    
+            <div id="resulttt"></div>
+        </div>
+    
+        <script>
+            function convertCurrency() {
+                var fromCurrency = document.getElementById("fromCurrency").value;
+                var toCurrency = document.getElementById("toCurrency").value;
+                var amount = parseFloat(document.getElementById("amount").value);
+
+                var exchangeRates = {
+                    UAH: { RUB: 3.5, EUR: 0.03, USD: 0.035 },
+                    RUB: { UAH: 0.29, EUR: 0.009, USD: 0.01 },
+                    EUR: { UAH: 30, RUB: 110, USD: 1.1 },
+                    USD: { UAH: 28, RUB: 100, EUR: 0.9 }
+                };
+    
+                var result = amount * exchangeRates[fromCurrency][toCurrency];
+    
+                document.getElementById("resulttt").innerText = "Результат: " + result.toFixed(2) + " " + toCurrency;
+            }
+        </script>
+    
+
+</body>
+</html>

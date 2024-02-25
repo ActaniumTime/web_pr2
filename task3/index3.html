@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>First line</li>
+        <li>Second line</li>
+        <li>Third line</li>
+    </ul>
+    <button onclick="append()" type="submit" >task1</button>
+    <button onclick="appendBlock()" type="submit" >task2</button>
+</body>
+<script>
+    function append(){
+        var ul = document.getElementsByTagName('ul')[0];
+        var text = prompt('Inpyt text');
+        if(text!='' && text!=null)
+        {
+            var li = document.createElement('li');
+            li.innerHTML=text;
+            ul.appendChild(li);
+        }
+    }
+
+    function appendBlock ()
+    {
+        var ul=document.getElementsByTagName('ul')[0];
+        var n = ul.children.length;
+        var fragment = document.createDocumentFragment();
+        var kol = prompt('Введите количество элементов','5');
+        for(var i = 1 ; i<kol ; i++)
+        {
+            var li=document.createElement('li');
+            n++;
+            li.innerHTML='Элемент № '+ n ;
+            fragment.appendChild(li);
+        }
+        ul.appendChild(fragment);
+    }
+</script>
+</html>

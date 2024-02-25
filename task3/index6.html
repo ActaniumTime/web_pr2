@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #modal{
+            background-color:rgba(255,120,120,0.5); 
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            display: none;
+        }
+        #modal form{
+            margin: 50px auto 0px;
+            padding: 10px;
+            width: 280px;
+            background: #609;
+            text-align: center;
+        }
+        .modal-button{
+            width: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input name="" type="button" class="button" value="Регистрация" onclick="openModal()">
+    <div id="modal">
+        <form action="" method="get" name="form1">
+            <table border="0" width="100%">
+                <tr>
+                    <td>Логин</td>
+                    <td> <input type="text" name="T1"></td>
+                </tr>
+                <tr>
+                    <td>Пароль</td>
+                    <td><input name="T1" type="text"></td>
+                </tr>
+                <tr>
+                    <td>e-mail</td>
+                    <td><input name="T1" type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input name="" type="button" class="modal-button" value="Записать" onclick="post()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+<script>
+    function openModal() {
+        var modal = document.getElementById('modal');
+        modal.style.display = 'block';
+    }
+</script>
+
+</html>

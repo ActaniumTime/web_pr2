@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #FFAAA4;
+        }
+        #colors{
+            position: relative;
+            top: 5px;
+            right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Текущий цвет красный</h2> -
+    <div id="colors">
+        <select name="D1" onchange="colors()">
+            <option value="#FFAAA4" selected> красный</option>
+            <option value="#82FFA2"> зеленый</option>
+            <option value="#91C8FF"> голубой</option>
+            <option value="#FFFFBB"> желтый</option>
+        </select>
+    </div>    
+</body>
+
+<script type="text/javascript"> 
+    function colors ()
+    {
+        //получаем массив на элементы с именем D1 и берем первый из них (наш список)
+        var color=document.getElementsByName('D1')[0];
+        //с помощью стиля меняем цвет фона страницы
+        document.body.style.backgroundColor = color.value;
+        //получаем массив всех элементов списка
+        var opt=document.getElementsByTagName('option');
+        //получаем текст элемента массива с номером,
+        var text = opt [color.selectedIndex].innerHTML;
+        //получаем ссылку на первый элемент в массиве
+        var h2=document.getElementsByTagName('h2')[0];
+        //в заголовке показываем новый цвет фона
+        h2.innerHTML='Текущий цвет'+text;
+    }
+    </script>
+</html>

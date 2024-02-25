@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper{
+            margin: 0px auto;
+            width: 900px;
+        }
+
+        #spoyler{
+            font: 10px Verdana, Geneva, sans-serif;
+            background: #999;
+            padding: 5px;
+            width: 730px;
+            border: 1px solid #000;
+            margin-left: 20px;
+            display: none;
+        }
+
+        #wrapper input{
+            font-size: 9px;
+            height: 15px;
+            width: 15px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure porro amet perspiciatis, sunt incidunt labore quia odio suscipit, laudantium ex illo assumenda dolores ab at officia neque, nulla iusto unde?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, consequuntur aut? Obcaecati quo ipsa laudantium, sint et rem est! Quas delectus explicabo amet enim ratione officiis itaque ducimus atque dolore!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, tempora cupiditate at voluptatibus debitis beatae cum et dignissimos fugiat pariatur. Numquam placeat earum iste nihil? Magnam et dolore laudantium veniam?
+
+        </p>
+        <input type="button" name="b1" value="+" onclick="spoyler()">
+        <div id="spoyler">
+            sdfj;ghdrfjkl; ghadruk;hgeruiklhgrjkhgldrkjghdr;jkghsdfknhasdf;jklv ynserui gsuilh sdrjklg hd;iogumop uadr
+            0adrt 
+            hsftiu hadr]i huad'oatirug iopdtut iop uyopaidr nueriv yaio;etb nuio;b nuerivqab y8
+            rai uny;oa nib njhq;werklvt njpw nuiobuib 4
+            aopb ynusdrioly husdroib husdrtos udrgi4ub ysio;b uar'oip jbhp89ou iop['w 34ip 09red5iy90-[ 7uio vbjkv jb yup o'o yaio\selectedr yir'g h2e
+            asr' g nur 8opyi uaw4p8utaw490uvt4b0as7y[ae4 p i4,4mp[oq4 unt]9p
+            5e mbua;i untb;opa un8opatbuqp06 87b name20[b98tuwb ip; w nueriv6iop    u09 ]]]']
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos minima consequatur ex cupiditate fugit tempora eius doloremque odit, facere ea quam dolore similique asperiores! Quae ex culpa quod. Perspiciatis.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita odio sint tempora rerum repellat. Fuga dolorem velit dolor, cumque dolorum atque ullam eaque consequuntur possimus eum eius ratione suscipit quasi?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam veniam dolorem repellat dolor voluptate odio tempora beatae corporis facere error. Pariatur voluptate aut aliquid! Sapiente non perferendis accusamus molestias tempore.
+        </p>
+    </div>
+</body>
+
+<script>
+    function spoyler(){
+        var button = document.getElementsByName('b1')[0];
+        var split = document.getElementById('spoyler');
+        if(button.value=='+'){
+            split.style.display = 'block';
+            button.value='-'
+        }
+        else{
+            split.style.display = 'none';
+            button.value='+';
+        }
+    }
+</script>
+
+</html>
